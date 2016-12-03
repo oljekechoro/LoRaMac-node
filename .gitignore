@@ -18,3 +18,7 @@ bin/
 *.pbxproj
 *.cogui
 *.comarker
+*.elay
+*.axf
+*.hex
+*.map

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<EmBitz_project_file>
+	<EmBitzVersion release="1.00" revision="0" />
+	<FileVersion major="1" minor="0" />
+	<Project>
+		<Option title="Ping-Pong" />
+		<Option pch_mode="2" />
+		<Option compiler="armgcc" />
+		<Build>
+			<Target title="Ping-Pong-lora">
+				<Option output="Ping-Pong.axf" />
+				<Option object_output=".\obj\Ping-Pong-lora" />
+				<Option type="0" />
+				<Option create_hex="1" />
+				<Option compiler="armgcc" />
+				<Option projectCompilerOptionsRelation="1" />
+				<Option projectAssemblerOptionsRelation="1" />
+				<Option projectLinkerOptionsRelation="1" />
+				<Option projectIncludeDirsRelation="1" />
+				<Option projectLibDirsRelation="1" />
+				<Device>
+					<Add option="$device=cortex-m3" />
+				</Device>
+				<Compiler>
+					<Add option="-mthumb" />
+					<Add option="-O1" />
+					<Add option="-mfloat-abi=soft" />
+					<Add symbol="USE_HAL_DRIVER" />
+					<Add symbol="STM32L151xB" />
+					<Add symbol="USE_DEBUGGER" />
+					<Add symbol="USE_MODEM_LORA" />
+					<Add directory="$(TARGET_COMPILER_DIR)\..\INC\ST\STM32L1xx\" />
+					<Add directory="..\..\..\src" />
+					<Add directory="..\..\..\src\boards\UNWR" />
+					<Add directory="..\..\..\src\boards\UNWR\cmsis" />
+					<Add directory="..\..\..\src\boards\mcu\stm32" />
+					<Add directory="..\..\..\src\boards\mcu\stm32\cmsis" />
+					<Add directory="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\inc" />
+					<Add directory="..\..\..\src\mac" />
+					<Add directory="..\..\..\src\peripherals" />
+					<Add directory="..\..\..\src\radio" />
+					<Add directory="..\..\..\src\system" />
+					<Add directory="..\..\..\src\system\crypto" />
+				</Compiler>
+				<Cpp>
+					<Add option="-O1" />
+				</Cpp>
+				<Linker>
+					<Add option="-mthumb" />
+					<Add option="--specs=nosys.specs" />
+					<Add option="-lm" />
+				</Linker>
+			</Target>
+			<Target title="Ping-Pong-fsk">
+				<Option output="Ping-Pong.axf" />
+				<Option object_output=".\obj\Ping-Pong-fsk" />
+				<Option type="0" />
+				<Option create_hex="1" />
+				<Option compiler="armgcc" />
+				<Device>
+					<Add option='$device=&quot;Cortex-M3&quot;' />
+				</Device>
+				<Compiler>
+					<Add option="-O1" />
+					<Add option="--debug" />
+					<Add option="--apcs=interwork" />
+					<Add option="--split_sections" />
+					<Add symbol="USE_HAL_DRIVER" />
+					<Add symbol="STM32L151xB" />
+					<Add symbol="USE_DEBUGGER" />
+					<Add symbol="USE_MODEM_FSK" />
+					<Add directory="$(TARGET_COMPILER_DIR)\..\INC\ST\STM32L1xx\" />
+					<Add directory="..\..\..\src" />
+					<Add directory="..\..\..\src\boards\SK-iM880A" />
+					<Add directory="..\..\..\src\boards\SK-iM880A\cmsis" />
+					<Add directory="..\..\..\src\boards\mcu\stm32" />
+					<Add directory="..\..\..\src\boards\mcu\stm32\cmsis" />
+					<Add directory="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\inc" />
+					<Add directory="..\..\..\src\mac" />
+					<Add directory="..\..\..\src\peripherals" />
+					<Add directory="..\..\..\src\radio" />
+					<Add directory="..\..\..\src\system" />
+					<Add directory="..\..\..\src\system\crypto" />
+				</Compiler>
+				<Cpp>
+					<Add option="-O1" />
+					<Add option="--debug" />
+					<Add option="--apcs=interwork" />
+					<Add option="--split_sections" />
+				</Cpp>
+				<Assembler>
+					<Add option="--debug" />
+					<Add option="--apcs=interwork" />
+				</Assembler>
+				<Linker>
+					<Add option="--library_type=microlib" />
+					<Add option="--strict" />
+				</Linker>
+			</Target>
+		</Build>
+		<Device>
+			<Add option="$device=cortex-m3" />
+		</Device>
+		<Compiler>
+			<Add option="-mfloat-abi=soft" />
+		</Compiler>
+		<Linker>
+			<Add option="-mthumb" />
+			<Add option="--specs=nosys.specs" />
+			<Add option="-lm" />
+		</Linker>
+		<ExtraCommands>
+			<Add after="arm-none-eabi-size.exe Ping-Pong.hex" />
+			<Mode before="0" />
+			<Mode after="2" />
+		</ExtraCommands>
+		<Unit filename="..\..\..\src\apps\ping-pong\UNWR\main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_adc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_adc_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_cortex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_dma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_gpio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_i2c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_pwr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_pwr_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_rcc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_rcc_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_rtc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_rtc_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_spi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_spi_ex.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_uart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\sysIrqHandlers.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\mcu\stm32\utilities.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\UNWR\adc-board.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\UNWR\board.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\UNWR\cmsis\arm-std\startup_stm32l1xx_md.s">
+			<Option compilerVar="ASM" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\UNWR\cmsis\system_stm32l1xx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\UNWR\gpio-board.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\UNWR\i2c-board.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\UNWR\rtc-board.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\UNWR\spi-board.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\UNWR\sx1276-board.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\boards\UNWR\sx1276-board.h" />
+		<Unit filename="..\..\..\src\boards\UNWR\uart-board.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\radio\sx1276\sx1276.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\radio\sx1276\sx1276.h" />
+		<Unit filename="..\..\..\src\radio\sx1276\sx1276Regs-Fsk.h" />
+		<Unit filename="..\..\..\src\radio\sx1276\sx1276Regs-LoRa.h" />
+		<Unit filename="..\..\..\src\system\adc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\system\delay.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\system\fifo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\system\gpio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\system\i2c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\system\timer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\..\..\src\system\uart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</EmBitz_project_file>
